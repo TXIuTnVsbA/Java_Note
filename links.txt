@@ -1,1 +1,6 @@
 http://www.weixueyuan.net/java/
+http://www.jfinal.com/doc/
+http://tool.oschina.net/apidocs/apidoc?api=jdk-zh
+http://tool.oschina.net/apidocs/apidoc?api=jdk_7u4
+https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/
+https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/overview-tree.html
