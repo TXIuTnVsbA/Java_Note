@@ -1,0 +1,74 @@
+接口的使用
+接口的使用与类的使用有些不同。在需要使用类的地方，会直接使用new关键字来构建一个类的实例，但接口不可以这样使用，因为接口不能直接使用 new 关键字来构建实例。
+
+接口必须通过类来实现(implements)它的抽象方法，然后再实例化类。类实现接口的关键字为implements。
+
+如果一个类不能实现该接口的所有抽象方法，那么这个类必须被定义为抽象方法。
+
+不允许创建接口的实例，但允许定义接口类型的引用变量，该变量指向了实现接口的类的实例。
+
+一个类只能继承一个父类，但却可以实现多个接口。
+
+实现接口的格式如下：
+修饰符 class 类名 extends 父类 implements 多个接口 {
+    实现方法
+}
+
+请看下面的例子：
+public class Demo {
+    public static void main(String args[]) {
+        Hdd hdd = new OtherHdd();//初始化硬盘
+        hdd.writeData("test\n");
+        String data = hdd.readData();
+        System.out.print(data);
+    }
+}
+    //创建一个硬盘接口
+    interface Hdd{
+        public void writeData(String data);
+        public String readData();
+    }
+    //实例化接口
+    //修饰符 class 类名 extends 父类 implements 多个接口 {实现方法}
+    class OtherHdd implements Hdd{
+        private String str="null\n";
+        public void writeData(String data) {
+            str=data;
+            System.out.print("OK\n");
+        }
+
+        public String readData() {
+            return str;
+        }
+    }
+运行结果:
+OK
+test
+
+接口作为类型使用
+接口作为引用类型来使用，任何实现该接口的类的实例都可以存储在该接口类型的变量中，通过这些变量可以访问类中所实现的接口中的方法，Java 运行时系统会动态地确定应该使用哪个类中的方法，实际上是调用相应的实现类的方法。
+
+示例如下：
+public class Demo{
+    public void test1(A a) {
+        a.doSth();
+    }
+    public static void main(String[] args) {
+        Demo d = new Demo();
+        A a = new B();
+        d.test1(a);
+    }
+}
+interface A {
+    public int doSth();
+}
+class B implements A {
+    public int doSth() {
+        System.out.println("now in B");
+        return 123;
+    }
+}
+运行结果：
+now in B
+
+大家看到接口可以作为一个类型来使用，把接口作为方法的参数和返回类型。

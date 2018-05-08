@@ -1,0 +1,13 @@
+int arrayDemo[] = {1, 2, 4, 7, 9, 192, 100};
+for(int i=0,len=arrayDemo.length; i<len; i++){
+    System.out.println(arrayDemo[i] + ", ");
+} 
+
+输出结果：
+1, 2, 4, 7, 9, 192, 100,
+
+int arrayDemo[] = {1, 2, 4, 7, 9, 192, 100};
+for(int x: arrayDemo){
+    System.out.println(x + ", ");
+}
+输出结果与上面相同。

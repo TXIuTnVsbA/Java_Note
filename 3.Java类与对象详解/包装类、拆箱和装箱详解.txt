@@ -1,0 +1,83 @@
+
+基本数据类型及对应的包装类
+基本数据类型	对应的包装类
+byte		Byte
+short		Short
+int		Integer
+long		Long
+char		Character
+float		Float
+double		Double
+boolean		Boolean
+
+1) 实现 int 和 Integer 的相互转换
+可以通过 Integer 类的构造方法将 int 装箱，通过 Integer 类的 intValue 方法将 Integer 拆箱。例如：
+public class Demo {
+    public static void main(String[] args) {
+        int m = 500;
+        Integer obj = new Integer(m);  // 手动装箱
+        int n = obj.intValue();  // 手动拆箱
+        System.out.println("n = " + n);
+       
+        Integer obj1 = new Integer(500);
+        System.out.println("obj 等价于 obj1？" + obj.equals(obj1));
+    }
+}
+运行结果：
+n = 500
+obj 等价于 obj1？true
+
+2) 将字符串转换为整数
+Integer 类有一个静态的 paseInt() 方法，可以将字符串转换为整数，语法为：
+parseInt(String s, int radix);
+s 为要转换的字符串，radix 为进制，可选，默认为十进制。
+
+public class Demo {
+    public static void main(String[] args) {
+        String str[] = {"123", "123abc", "abc123", "abcxyz"};
+       
+        for(String str1 : str){
+            try{
+                int m = Integer.parseInt(str1, 10);
+                System.out.println(str1 + " 可以转换为整数 " + m);
+            }catch(Exception e){
+                System.out.println(str1 + " 无法转换为整数");
+            }
+        }
+    }
+}
+运行结果：
+123 可以转换为整数 123
+123abc 无法转换为整数
+abc123 无法转换为整数
+abcxyz 无法转换为整数
+
+3) 将整数转换为字符串
+Integer 类有一个静态的 toString() 方法，可以将整数转换为字符串。例如：
+public class Demo {
+    public static void main(String[] args) {
+        int m = 500;
+        String s = Integer.toString(m);
+        System.out.println("s = " + s);
+    }
+}
+运行结果：
+s = 500
+
+自动拆箱和装箱
+public class Demo {
+    public static void main(String[] args) {
+        int m = 500;
+        Integer obj = m;  // 自动装箱
+        int n = obj;  // 自动拆箱
+        System.out.println("n = " + n);
+      
+        Integer obj1 = 500;
+        System.out.println("obj 等价于 obj1？" + obj.equals(obj1));
+    }
+}
+运行结果：
+n = 500
+obj 等价于 obj1？true
+
+自动拆箱装箱是常用的一个功能，读者需要重点掌握。

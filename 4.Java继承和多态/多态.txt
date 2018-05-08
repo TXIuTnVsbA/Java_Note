@@ -1,0 +1,108 @@
+public class Demo {
+    public static void main(String[] args){
+        Animal obj = new Animal();
+        obj.cry();
+
+        obj = new Cat();
+        obj.cry();
+
+        obj = new Dog();
+        obj.cry();
+    }
+}
+
+class Animal{
+    // 动物的叫声
+    public void cry(){
+        System.out.println("不知道怎么叫");
+    }
+   
+}
+
+class Cat extends Animal{
+    // 猫的叫声
+    public void cry(){
+        System.out.println("喵喵~");
+    }
+}
+
+class Dog extends Animal{
+    // 狗的叫声
+    public void cry(){
+        System.out.println("汪汪~");
+    }
+}
+运行结果：
+不知道怎么叫
+喵喵~
+汪汪~
+
+多态存在的三个必要条件：要有继承、要有重写、父类变量引用子类对象。
+
+当使用多态方式调用方法时：
+首先检查父类中是否有该方法，如果没有，则编译错误；如果有，则检查子类是否覆盖了该方法。
+如果子类覆盖了该方法，就调用子类的方法，否则调用父类方法。
+
+从上面的例子可以看出，多态的一个好处是：当子类比较多时，也不需要定义多个变量，可以只定义一个父类类型的变量来引用不同子类的实例。请再看下面的一个例子：
+
+public class Demo {
+    public static void main(String[] args){
+        // 借助多态，主人可以给很多动物喂食
+        Master ma = new Master();
+        ma.feed(new Animal(), new Food());
+        ma.feed(new Cat(), new Fish());
+        ma.feed(new Dog(), new Bone());
+    }
+}
+
+// Animal类及其子类
+class Animal{
+    public void eat(Food f){
+        System.out.println("我是一个小动物，正在吃" + f.getFood());
+    }
+}
+
+class Cat extends Animal{
+    public void eat(Food f){
+        System.out.println("我是一只小猫咪，正在吃" + f.getFood());
+    }
+}
+
+class Dog extends Animal{
+    public void eat(Food f){
+        System.out.println("我是一只狗狗，正在吃" + f.getFood());
+    }
+}
+
+// Food及其子类
+class Food{
+    public String getFood(){
+        return "事物";
+    }
+}
+
+class Fish extends Food{
+    public String getFood(){
+        return "鱼";
+    }
+}
+
+class Bone extends Food{
+    public String getFood(){
+        return "骨头";
+    }
+}
+
+// Master类
+class Master{
+    public void feed(Animal an, Food f){
+        an.eat(f);
+    }
+}
+运行结果：
+我是一个小动物，正在吃事物
+我是一只小猫咪，正在吃鱼
+我是一只狗狗，正在吃骨头
+
+Master 类的 feed 方法有两个参数，分别是 Animal 类型和 Food 类型，因为是父类，所以可以将子类的实例传递给它，这样 Master 类就不需要多个方法来给不同的动物喂食。
+

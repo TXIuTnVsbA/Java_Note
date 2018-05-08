@@ -1,0 +1,24 @@
+自动转换按从低到高的顺序转换。不同类型数据间的优先关系如下：
+    低--------------------------------------------->高
+    byte,short,char-> int -> long -> float -> double
+运算中，不同类型的数据先转化为同一类型，然后进行运算，转换规则如下：
+
+操作数1类型				操作数2类型	转换后的类型
+byte、short、char			int		int
+byte、short、char、int			long		long
+byte、short、char、int、long		float		float
+byte、short、char、int、long、float	double		double
+
+public class Demo {
+    public static void main(String[] args){
+        int x;
+        double y;
+        x = (int)34.56 + (int)11.2;  // 丢失精度
+        y = (double)x + (double)10 + 1;  // 提高精度
+        System.out.println("x=" + x);
+        System.out.println("y=" + y);
+    }
+}
+运行结果：
+x=45
+y=56.0
