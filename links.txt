@@ -4,3 +4,6 @@ http://tool.oschina.net/apidocs/apidoc?api=jdk-zh
 http://tool.oschina.net/apidocs/apidoc?api=jdk_7u4
 https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/
 https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/overview-tree.html
+https://www.jianshu.com/p/230e6fde9c75
+https://www.jianshu.com/p/42f81846c0fb
+https://www.jianshu.com/p/63e76826e852
