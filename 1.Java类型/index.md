@@ -74,6 +74,7 @@ public class HelloWorld {
 
 <br/>
 <br/>
+
 ####原始数据类型
 
 ------
@@ -99,6 +100,7 @@ JAVA中有八种基本类型
 
 
 <br/>
+
 ####java命名约定的优点
 
 通过使用标准的Java命名约定，您可以使自己和其他程序员更容易阅读代码。Java程序的可读性非常重要。 它能让程序开发者花费更少的时间来读懂代码的作用。
@@ -108,7 +110,6 @@ JAVA中有八种基本类型
 |类名称	|应以大写字母开头，并成为容易理解的名词或组合。如：**String**, **Color**, **Button**, **System**, **Thread**等。|
 |接口名称|应以大写字母开头，并作为形容词。如： **Runnable**，**Remote**，**ActionListener**等。|
 |方法名称|应以小写字母开头，并作为动词。如：**actionPerformed()**，**main()**，**print()**，**println()**等。|
-|变量名称|应以小写字母开头。如：**firstName**，**orderNumber**等。
-|
+|变量名称|应以小写字母开头。如：**firstName**，**orderNumber**等。|
 |包名称|应使用小写字母。如： **java**，**lang**，**sql**，**util**等。|
 |常量名称|应使用大写字母。 例如：**RED**, **YELLOW**, **MAX_PRIORITY**等|
